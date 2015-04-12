@@ -37,8 +37,9 @@ func Compile(expr string) (*Regexp, error) {
 	if re, err := pcre.Compile(expr, pcre.Utf8|pcre.Dupnames, nil); err != nil {
 		return nil, err
 	} else {
-		runtime.SetFinalizer(re, re.Free)
-		return &Regexp{expr: expr, pcre: re}, nil
+		regexp := &Regexp{expr: expr, pcre: re}
+		runtime.SetFinalizer(regexp, func(re *Regexp) { re.pcre.Free() })
+		return regexp, nil
 	}
 }
 
