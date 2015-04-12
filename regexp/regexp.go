@@ -253,9 +253,9 @@ func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int {
 	return re.FindSubmatchIndex(data)
 }
 
-func (re *Regexp) LiteralPrefix() (prefix string, complete bool)                    { panic("TODO") }
-func (re *Regexp) Longest()                                                         {} // TODO
-func (re *Regexp) MatchReader(r io.RuneReader) bool                                 { panic("TODO") }
+func (re *Regexp) LiteralPrefix() (prefix string, complete bool) { panic("TODO") }
+func (re *Regexp) Longest()                                      {} // TODO
+func (re *Regexp) MatchReader(r io.RuneReader) bool              { panic("TODO") }
 
 func (re *Regexp) Split(s string, n int) []string { return nil }
 
